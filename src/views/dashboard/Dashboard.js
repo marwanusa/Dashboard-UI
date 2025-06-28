@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 
-
 import classNames from 'classnames'
 
 import {
@@ -182,8 +181,9 @@ const Dashboard = () => {
 
   return (
     <>
+
       <WidgetsDropdown className="mb-4" />
-      <CCard className="mb-4">
+      <CCard className="mb-4" style={{ backgroundColor: 'var(--bs-card-bg)' }}>
         <CCardBody>
           <CRow>
             <CCol sm={5}>
@@ -238,11 +238,14 @@ const Dashboard = () => {
         </CCardFooter>
       </CCard>
       {
-        user === 'admin' && <PieChart/>
+        user === 'admin' &&
+        <CCard className='mb-4'>
+        <PieChart/>
+        </CCard>
       }
       <CRow>
         <CCol xs>
-          <CCard className="mb-4">
+          <CCard className="mb-4" style={{ backgroundColor: 'var(--bs-card-bg)' }}>
             <CCardHeader>Traffic {' & '} Sales</CCardHeader>
             <CCardBody>
               <CRow>
@@ -328,11 +331,11 @@ const Dashboard = () => {
               </CRow>
 
               <br />
-                   {
+                {
         user === 'admin' && (
-                        <CTable align="middle" className="mb-0 border" hover responsive>
+                        <CTable align="middle" className="mb-0 border" hover responsive >
                 <CTableHead className="text-nowrap">
-                  <CTableRow>
+                  <CTableRow >
                     <CTableHeaderCell className="bg-body-tertiary text-center">
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
@@ -347,7 +350,7 @@ const Dashboard = () => {
                     <CTableHeaderCell className="bg-body-tertiary">Activity</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
-                <CTableBody>
+                <CTableBody >
                   {tableExample.map((item, index) => (
                     <CTableRow v-for="item in tableItems" key={index}>
                       <CTableDataCell className="text-center">

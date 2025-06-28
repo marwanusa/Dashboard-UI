@@ -1,7 +1,11 @@
 /* eslint-disable prettier/prettier */
+// /* eslint-disable prettier/prettier */
 import { ResponsivePie } from '@nivo/pie';
 import { useState } from 'react';
-import './styles.css';
+import styles from './styles.module.css';
+import FilterFields from './FilterFields';
+
+
 const WebsiteTrafficChart = () => {
   const data = [
     { id: "React", label: "React", value: 272, color: "hsl(107, 70%, 50%)" },
@@ -12,54 +16,11 @@ const WebsiteTrafficChart = () => {
   ];
     const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-
+  const {flexRow,inputContainer} = styles;
   return (
-    <>
-    <div className="card">
-      <div className="card-header">
-        <div className="date-picker-wrapper">
-          <div className="date-picker">
-            <svg
-              className="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="white"
-              viewBox="0 0 24 24"
-            >
-              <path d="M7 2v2H5a2 2 0 0 0-2 2v14a2..." />
-            </svg>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
-          </div>
-
-          <span className="date-separator">to</span>
-
-          <div className="date-picker">
-            <svg
-              className="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="white"
-              viewBox="0 0 24 24"
-            >
-              <path d="M7 2v2H5a2 2 0 0 0-2 2v14a2..." />
-            </svg>
-            <input
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-            />
-          </div>
-        </div>
-      </div>
-      <div className='card-body-1'>
-
-    <div style={{ height: '600px', width: '70%' }}>
+  <div className={flexRow}>
+    {/* Left*/}
+    <div className={styles.chartContainer}>
       <ResponsivePie
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -140,35 +101,20 @@ const WebsiteTrafficChart = () => {
               fontSize: 12,
             },
           },
-        }}
-      />
+        }}/>
     </div>
-            <div className="filter-container">
-      <div className="filter-row">
-        <label htmlFor="selled">Number Of Selled</label>
-        <input
-          type="number"
-          name="selled"
-          id="selled"
 
-          placeholder="Enter number"
-        />
-      </div>
-      <div className="filter-row">
-        <label htmlFor="price">Price</label>
-        <input
-          type="number"
-          name="price"
-          id="price"
-          placeholder="Enter price"
-        />
-      </div>
-    </div>
-      </div>
+    {/* Right */}
+      {/* Date Picker */}
+      <div className='d-flex flex-column justify-content-center flex-fill'>
 
+    <div className={inputContainer}>
+      <div className="filter-row">
+        <FilterFields/>
+      </div>
     </div>
-    </>
+    </div>
+  </div>
   );
-};
-
+}
 export default WebsiteTrafficChart;

@@ -1,4 +1,4 @@
-import { AppContent, AppFooter, AppHeader } from '../components/index'
+import { AppContent, AppHeader } from '../components/index'
 
 const DefaultLayout = () => {
   return (
@@ -8,7 +8,6 @@ const DefaultLayout = () => {
         <div className="body flex-grow-1">
           <AppContent />
         </div>
-        <AppFooter />
       </div>
     </div>
   )

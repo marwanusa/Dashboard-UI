@@ -4,21 +4,6 @@
 @use "@coreui/chartjs/scss/coreui-chartjs";
 
 
-// Custom light theme overrides
-:root {
-  --cui-body-bg: #f8fafc;
-  --cui-body-color: #22223b;
-  --cui-primary: #4f8cff;
-  --cui-secondary-bg: #e9ecef;
-  --cui-tertiary-bg: #f1f3f9;
-  --cui-card-bg: #ffffff;
-  --cui-border-color: #dee2e6;
-  --cui-success: #22c55e;
-  --cui-danger: #ef4444;
-  --cui-warning: #facc15;
-  --cui-info: #38bdf8;
-}
-
 body {
   background-color: var(--cui-tertiary-bg);
 }
@@ -37,6 +22,13 @@ body {
 
 .header {
   background: var(--cui-header-bg);
+}
+
+@include color-mode(dark) {
+  .header {
+    background: #181a20 !important;
+    color: #f8f9fa !important;
+  }
 }
 
 .sidebar {
@@ -88,5 +80,27 @@ body {
 
   .footer {
     --cui-footer-bg: var(--cui-body-bg);
+  }
+}
+.CCardHeader, .CCardBody, .CCardFooter {
+  background: var(--cui-card-bg);
+  color: var(--cui-body-color);
+}
+
+@include color-mode(dark) {
+  .CCardHeader, .CCardBody, .CCardFooter {
+    background: #23272f !important;
+    color: #f8f9fa !important;
+  }
+}
+.table {
+  background: var(--cui-card-bg);
+  color: var(--cui-body-color);
+}
+
+@include color-mode(dark) {
+  .table {
+    background: #23272f !important;
+    color: #f8f9fa !important;
   }
 }
